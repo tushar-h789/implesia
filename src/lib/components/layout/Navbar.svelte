@@ -41,7 +41,7 @@
 
 <nav
 	class="border-b border-gray-200 bg-white/95 px-6 py-4 backdrop-blur-md"
-	role="navigation"
+	
 	aria-label="Main navigation"
 >
 	<div class="container flex items-center justify-between">
@@ -102,6 +102,7 @@
 			<div
 				class="relative"
 				role="menuitem"
+				tabindex="0"
 				aria-haspopup="true"
 				aria-expanded={servicesOpen}
 				on:mouseenter={handleServicesMouseEnter}
@@ -126,6 +127,7 @@
 					<div
 						class="absolute top-full left-0 z-50 animate-in rounded-xl pt-2 fade-in-0 zoom-in-95"
 						role="menu"
+						tabindex="0"
 						aria-label="Services submenu"
 						on:mouseenter={handleServicesMouseEnter}
 						on:mouseleave={handleServicesMouseLeave}
