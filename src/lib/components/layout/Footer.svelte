@@ -59,7 +59,7 @@
 </script>
 
 <footer
-	class="relative overflow-hidden bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
+	class="relative overflow-hidden px-4 bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
 >
 	<!-- Animated background elements -->
 	<div class="absolute inset-0 opacity-5">
