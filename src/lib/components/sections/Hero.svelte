@@ -245,7 +245,7 @@
 		</div>
 
 		<!-- Enhanced Navigation Dots with responsive sizing -->
-		<div class="absolute bottom-8 sm:bottom-12 md:bottom-6 lg:bottom-20 xl:bottom-24 left-1/2 transform -translate-x-1/2 z-20">
+		<div class="absolute bottom-8 sm:bottom-12 md:bottom-6 lg:bottom-10 xl:bottom-12 2xl:bottom-16 left-1/2 transform -translate-x-1/2 z-20">
 			<div class="flex space-x-1.5 sm:space-x-2 md:space-x-3 items-center bg-black/30 backdrop-blur-md rounded-full px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2.5 lg:px-5 lg:py-3 border border-white/10 shadow-2xl">
 				{#each slides as _, index (index)}
 					<button
@@ -560,10 +560,23 @@
 		}
 	}
 
+	/* Desktop size (1024px+) - Ensure navigation dots stay at bottom */
+	@media (min-width: 1024px) {
+		/* Keep navigation dots at reasonable bottom position */
+		section > div > div[class*="absolute"][class*="bottom"]:last-of-type {
+			bottom: 2.5rem !important;
+		}
+	}
+
 	/* Large desktop adjustments */
 	@media (min-width: 1920px) {
 		section {
 			min-height: 100vh;
+		}
+		
+		/* Large desktop - keep navigation dots visible */
+		section > div > div[class*="absolute"][class*="bottom"]:last-of-type {
+			bottom: 4rem !important;
 		}
 	}
 
