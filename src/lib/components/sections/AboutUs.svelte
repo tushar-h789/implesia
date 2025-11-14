@@ -1,6 +1,8 @@
 <script lang="ts">
-    import aboutUsImage from '$lib/assets/images/home/banner/about-us.jpg';
-    import tusharImage from '$lib/assets/images/home/image.png';
+    // @ts-expect-error - vite-imagetools processes these at build time
+    import aboutUsImage from '$lib/assets/images/home/banner/about-us.jpg?w=800&h=1000&format=webp&quality=85';
+    // @ts-expect-error - vite-imagetools processes these at build time
+    import tusharImage from '$lib/assets/images/home/image.png?w=128&h=128&format=webp&quality=90';
   </script>
   
   <section class="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 py-20 px-6 lg:px-20">

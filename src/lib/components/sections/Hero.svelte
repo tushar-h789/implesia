@@ -2,9 +2,12 @@
 	import { onMount, onDestroy } from 'svelte';
 	import EmblaCarousel from 'embla-carousel';
 	import Button from '$lib/components/ui/Button.svelte';
-	import banner1 from '$lib/assets/images/home/banner/banner-1.jpg';
-	import banner2 from '$lib/assets/images/home/banner/banner-2.jpg';
-	import banner3 from '$lib/assets/images/home/banner/banner-3.jpg';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import banner1 from '$lib/assets/images/home/banner/banner-1.jpg?w=1920&h=1080&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import banner2 from '$lib/assets/images/home/banner/banner-2.jpg?w=1920&h=1080&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import banner3 from '$lib/assets/images/home/banner/banner-3.jpg?w=1920&h=1080&format=webp&quality=85';
 
 	// Banner slide data
 	const slides = [

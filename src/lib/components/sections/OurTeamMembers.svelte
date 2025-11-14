@@ -2,12 +2,18 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
 	import { Facebook, Twitter, Linkedin } from 'lucide-svelte';
-	import nazrul from '$lib/assets/images/home/team/nazrul.jpg';
-	import munna from '$lib/assets/images/home/team/munna.png';
-	import turabi from '$lib/assets/images/home/team/turabi.png';
-	import tauhid from '$lib/assets/images/home/team/tauhid.png';
-	import soikot from '$lib/assets/images/home/team/sozibul.jpg';
-	import rabbi from '$lib/assets/images/home/team/rabbi.png';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import nazrul from '$lib/assets/images/home/team/nazrul.jpg?w=400&h=400&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import munna from '$lib/assets/images/home/team/munna.png?w=400&h=400&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import turabi from '$lib/assets/images/home/team/turabi.png?w=400&h=400&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import tauhid from '$lib/assets/images/home/team/tauhid.png?w=400&h=400&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import soikot from '$lib/assets/images/home/team/sozibul.jpg?w=400&h=400&format=webp&quality=85';
+	// @ts-expect-error - vite-imagetools processes these at build time
+	import rabbi from '$lib/assets/images/home/team/rabbi.png?w=400&h=400&format=webp&quality=85';
 
 	// Section visibility state
 	let sectionElement: HTMLElement;

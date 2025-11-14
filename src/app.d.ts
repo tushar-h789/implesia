@@ -10,4 +10,10 @@ declare global {
 	}
 }
 
+// Type declarations for vite-imagetools
+declare module '*?*' {
+	const src: string;
+	export default src;
+}
+
 export {};
