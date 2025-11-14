@@ -42,7 +42,7 @@
           </div>
           <div>
             <p class="text-lg font-semibold">Tushar Hossen</p>
-            <p class="text-gray-500 text-sm">CEO, Implesia<br />Dhaka, Bangladesh</p>
+            <p class="text-gray-500 text-sm">CEO and Founder, Implesia<br />Dhaka, Bangladesh</p>
           </div>
         </div>
       </div>
