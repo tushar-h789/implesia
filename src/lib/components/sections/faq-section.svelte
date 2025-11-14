@@ -69,17 +69,17 @@
 			<div class="space-y-8">
 				<!-- Banner: "FREQUENTLY ASK QUESTIONS" -->
 				<div
-					class="bg-[#198888] rounded-lg px-6 py-3 inline-block"
+					class="bg-[#0d6b6b] rounded-lg px-6 py-3 inline-block"
 				>
 					<span class="text-white font-bold text-sm sm:text-base uppercase tracking-wide">
-						FREQUENTLY ASK QUESTIONS
+FREQUENTLY ASK QUESTIONS
 					</span>
 				</div>
 
 				<!-- Heading -->
 				<div class="space-y-2">
 					<h2
-						class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0BC1C0] leading-tight"
+						class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#089a99] leading-tight"
 					>
 						NEED HELP?
 					</h2>
@@ -95,15 +95,15 @@
 					<!-- Phone Contact -->
 					<div class="flex items-start gap-4">
 						<div
-							class="shrink-0 w-12 h-12 rounded-lg bg-[#0BC1C0]/20 flex items-center justify-center"
+							class="shrink-0 w-12 h-12 rounded-lg bg-[#089a99]/20 flex items-center justify-center"
 						>
-							<Phone class="w-6 h-6 text-[#0BC1C0]" />
+							<Phone class="w-6 h-6 text-[#089a99]" />
 						</div>
 						<div>
 							<p class="text-gray-700 font-semibold mb-1">24/7 Customer care</p>
 							<a
 								href="tel:+8801516527932"
-								class="text-gray-600 text-sm sm:text-base hover:text-[#0BC1C0] transition-colors duration-300 cursor-pointer"
+								class="text-gray-600 text-sm sm:text-base hover:text-[#089a99] transition-colors duration-300 cursor-pointer"
 							>
 								Call us : (+880) 1516 527 932
 							</a>
@@ -113,15 +113,15 @@
 					<!-- Email Contact -->
 					<div class="flex items-start gap-4">
 						<div
-							class="shrink-0 w-12 h-12 rounded-lg bg-[#0BC1C0]/20 flex items-center justify-center"
+							class="shrink-0 w-12 h-12 rounded-lg bg-[#089a99]/20 flex items-center justify-center"
 						>
-							<Mail class="w-6 h-6 text-[#0BC1C0]" />
+							<Mail class="w-6 h-6 text-[#089a99]" />
 						</div>
 						<div>
 							<p class="text-gray-700 font-semibold mb-1">For Technical Issues</p>
 							<a
 								href="mailto:tushar788hossen@gmail.com"
-								class="text-gray-600 text-sm sm:text-base hover:text-[#0BC1C0] transition-colors duration-300 cursor-pointer"
+								class="text-gray-600 text-sm sm:text-base hover:text-[#089a99] transition-colors duration-300 cursor-pointer"
 							>
 								Mail us : tushar788hossen@gmail.com
 							</a>
@@ -149,7 +149,7 @@
 						<div class="faq-item">
 							<!-- Question Button -->
 							<button
-								class="w-full text-left bg-[#0BC1C0]/20 rounded-lg px-5 py-4 flex items-center justify-between gap-4 transition-all duration-300 hover:bg-[#0BC1C0]/30"
+								class="w-full text-left bg-[#089a99]/20 rounded-lg px-5 py-4 flex items-center justify-between gap-4 transition-all duration-300 hover:bg-[#089a99]/30"
 								onclick={() => toggleFAQ(item.id)}
 								aria-expanded={item.isOpen}
 								aria-controls="faq-answer-{item.id}"

@@ -1,6 +1,6 @@
 <script lang="ts">
     // @ts-expect-error - vite-imagetools processes these at build time
-    import aboutUsImage from '$lib/assets/images/home/banner/about-us.jpg?w=800&h=1000&format=webp&quality=85';
+    import aboutUsImage from '$lib/assets/images/home/banner/about-us.jpg?w=640&h=800&format=webp&quality=80';
     // @ts-expect-error - vite-imagetools processes these at build time
     import tusharImage from '$lib/assets/images/home/image.png?w=128&h=128&format=webp&quality=90';
   </script>
@@ -13,8 +13,8 @@
         alt="Office" 
         class="w-full h-full object-cover rounded-xl shadow-lg" 
         loading="lazy"
-        width={800}
-        height={1000}
+        width={640}
+        height={800}
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
     </div>

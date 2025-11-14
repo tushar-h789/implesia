@@ -168,7 +168,7 @@
 
 <section
 	bind:this={sectionElement}
-	class="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#198888] overflow-visible"
+	class="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#0d6b6b] overflow-visible"
 	style="display: block; visibility: visible; opacity: 1;"
 >
 	<div class="container mx-auto max-w-7xl">
@@ -177,7 +177,7 @@
 			<!-- Small Label: "OUR TEAM" -->
 			<div class="inline-block mb-6">
 				<span
-					class="inline-block px-4 py-1.5 text-xs sm:text-sm font-semibold text-white border-2 border-white rounded-lg tracking-wide"
+					class="inline-block px-4 py-1.5 text-xs sm:text-sm font-semibold text-white border-2 border-white/90 rounded-lg tracking-wide"
 				>
 					OUR TEAM
 				</span>
@@ -199,7 +199,7 @@
 
 			<!-- Description -->
 			<p
-				class="text-base sm:text-lg text-white max-w-3xl mx-auto leading-relaxed px-4"
+				class="text-base sm:text-lg text-white/95 max-w-3xl mx-auto leading-relaxed px-4"
 			>
 				Get to know the people who turn ideas into strategy and strategy into success. Each
 				member of our team brings unique expertise to help your brand grow digitally.

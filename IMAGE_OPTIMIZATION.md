@@ -39,12 +39,12 @@ We've set up **vite-imagetools** to automatically optimize images during the bui
 All images are now automatically optimized during build:
 
 1. **Banner Images (Hero Component)**
-   - `banner-1.jpg` → WebP, 1920x1080, 85% quality
-   - `banner-2.jpg` → WebP, 1920x1080, 85% quality
-   - `banner-3.jpg` → WebP, 1920x1080, 85% quality
+   - `banner-1.jpg` → WebP, 1920x1080, 75% quality (optimized for size)
+   - `banner-2.jpg` → WebP, 1920x1080, 75% quality (optimized for size)
+   - `banner-3.jpg` → WebP, 1920x1080, 75% quality (optimized for size)
 
 2. **About Us Section**
-   - `about-us.jpg` → WebP, 800x1000, 85% quality
+   - `about-us.jpg` → WebP, 640x800, 80% quality (matched to display size)
    - `image.png` (Tushar) → WebP, 128x128, 90% quality
 
 3. **Team Member Images**
@@ -54,8 +54,10 @@ All images are now automatically optimized during build:
 ### Expected Savings
 With automatic optimization, you should see:
 - **Format conversion**: ~60-80% size reduction (WebP vs JPEG/PNG)
-- **Resizing**: Additional savings from matching display dimensions
+- **Quality optimization**: 75% quality for banners, 80% for content images
+- **Resizing**: Images matched to display dimensions (640x800 for about-us)
 - **Total estimated savings**: ~20,000-25,000 KiB (70-85% reduction)
+- **Additional compression**: ~150+ KiB saved from quality and dimension adjustments
 
 ### How It Works
 

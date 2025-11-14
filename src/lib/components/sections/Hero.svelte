@@ -3,11 +3,11 @@
 	import EmblaCarousel from 'embla-carousel';
 	import Button from '$lib/components/ui/Button.svelte';
 	// @ts-expect-error - vite-imagetools processes these at build time
-	import banner1 from '$lib/assets/images/home/banner/banner-1.jpg?w=1920&h=1080&format=webp&quality=85';
+	import banner1 from '$lib/assets/images/home/banner/banner-1.jpg?w=1920&h=1080&format=webp&quality=75';
 	// @ts-expect-error - vite-imagetools processes these at build time
-	import banner2 from '$lib/assets/images/home/banner/banner-2.jpg?w=1920&h=1080&format=webp&quality=85';
+	import banner2 from '$lib/assets/images/home/banner/banner-2.jpg?w=1920&h=1080&format=webp&quality=75';
 	// @ts-expect-error - vite-imagetools processes these at build time
-	import banner3 from '$lib/assets/images/home/banner/banner-3.jpg?w=1920&h=1080&format=webp&quality=85';
+	import banner3 from '$lib/assets/images/home/banner/banner-3.jpg?w=1920&h=1080&format=webp&quality=75';
 
 	// Banner slide data
 	const slides = [

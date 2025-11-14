@@ -393,7 +393,7 @@
 					<button
 						type="submit"
 						disabled={isSubmitting}
-						class="w-full bg-[#0BC1C0] text-white font-semibold py-4 px-6 rounded-lg hover:bg-[#0a9a99] disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-none"
+						class="w-full bg-[#089a99] text-white font-semibold py-4 px-6 rounded-lg hover:bg-[#078888] disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:shadow-none"
 					>
 						{#if isSubmitting}
 							<Loader2 class="w-5 h-5 animate-spin" />
@@ -411,7 +411,7 @@
 				<!-- "CONTACT US" Label -->
 				<div class="inline-block">
 					<span
-						class="inline-block px-4 py-2 bg-[#198888] text-white text-xs sm:text-sm font-bold rounded-full uppercase tracking-wide"
+						class="inline-block px-4 py-2 bg-[#0d6b6b] text-white text-xs sm:text-sm font-bold rounded-full uppercase tracking-wide"
 					>
 						CONTACT US
 					</span>
@@ -420,7 +420,7 @@
 				<!-- Main Headline -->
 				<div class="space-y-2">
 					<h2
-						class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0BC1C0] leading-tight"
+						class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#089a99] leading-tight"
 					>
 						LET'S BUILD YOUR
 					</h2>
@@ -441,9 +441,9 @@
 				<div class="space-y-4 pt-4">
 					<div class="flex items-start gap-3">
 						<div
-							class="shrink-0 w-6 h-6 rounded-full bg-[#0BC1C0]/20 flex items-center justify-center mt-0.5"
+							class="shrink-0 w-6 h-6 rounded-full bg-[#089a99]/20 flex items-center justify-center mt-0.5"
 						>
-							<Check class="w-4 h-4 text-[#0BC1C0]" stroke-width="3" />
+							<Check class="w-4 h-4 text-[#089a99]" stroke-width="3" />
 						</div>
 						<p class="text-gray-700 font-medium text-base sm:text-lg">
 							Free Strategy Session
@@ -452,9 +452,9 @@
 
 					<div class="flex items-start gap-3">
 						<div
-							class="shrink-0 w-6 h-6 rounded-full bg-[#0BC1C0]/20 flex items-center justify-center mt-0.5"
+							class="shrink-0 w-6 h-6 rounded-full bg-[#089a99]/20 flex items-center justify-center mt-0.5"
 						>
-							<Check class="w-4 h-4 text-[#0BC1C0]" stroke-width="3" />
+							<Check class="w-4 h-4 text-[#089a99]" stroke-width="3" />
 						</div>
 						<p class="text-gray-700 font-medium text-base sm:text-lg">
 							Quick & Friendly Communication
@@ -463,9 +463,9 @@
 
 					<div class="flex items-start gap-3">
 						<div
-							class="shrink-0 w-6 h-6 rounded-full bg-[#0BC1C0]/20 flex items-center justify-center mt-0.5"
+							class="shrink-0 w-6 h-6 rounded-full bg-[#089a99]/20 flex items-center justify-center mt-0.5"
 						>
-							<Check class="w-4 h-4 text-[#0BC1C0]" stroke-width="3" />
+							<Check class="w-4 h-4 text-[#089a99]" stroke-width="3" />
 						</div>
 						<p class="text-gray-700 font-medium text-base sm:text-lg">
 							Always Ready to Assist
@@ -480,14 +480,14 @@
 <style>
 	/* Custom checkbox styling */
 	input[type='checkbox'] {
-		accent-color: #0BC1C0;
+		accent-color: #089a99;
 		cursor: pointer;
 	}
 
 	/* Form input focus styles */
 	input:focus,
 	textarea:focus {
-		box-shadow: 0 0 0 3px rgba(11, 193, 192, 0.1);
+		box-shadow: 0 0 0 3px rgba(8, 154, 153, 0.1);
 	}
 
 	/* Smooth transitions */
