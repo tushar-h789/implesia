@@ -3,6 +3,7 @@
 	import Hero from '$lib/components/sections/Hero.svelte';
 	import WeAreImplesian from '$lib/components/sections/WeAreImplesian.svelte';
 	import OurTeamMembers from '$lib/components/sections/OurTeamMembers.svelte';
+	import Pricing from '$lib/components/sections/pricing.svelte';
 </script>
 
 <div>
@@ -10,5 +11,6 @@
 	<AboutUs />
 	<WeAreImplesian />
 	<OurTeamMembers />
+	<Pricing />
 </div>
 

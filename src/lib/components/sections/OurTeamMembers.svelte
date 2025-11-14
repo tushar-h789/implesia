@@ -1,11 +1,58 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/environment';
 	import { Facebook, Twitter, Linkedin } from 'lucide-svelte';
-    import nazrul from '$lib/assets/images/home/team/nazrul.jpg';
-    import munna from '$lib/assets/images/home/team/munna.png';
-    import turabi from '$lib/assets/images/home/team/turabi.png';
-    import tauhid from '$lib/assets/images/home/team/tauhid.png';
-    import soikot from '$lib/assets/images/home/team/tauhid.png';
-    import rabbi from '$lib/assets/images/home/team/rabbi.png';
+	import nazrul from '$lib/assets/images/home/team/nazrul.jpg';
+	import munna from '$lib/assets/images/home/team/munna.png';
+	import turabi from '$lib/assets/images/home/team/turabi.png';
+	import tauhid from '$lib/assets/images/home/team/tauhid.png';
+	import soikot from '$lib/assets/images/home/team/sozibul.jpg';
+	import rabbi from '$lib/assets/images/home/team/rabbi.png';
+
+	// Section visibility state
+	let sectionElement: HTMLElement;
+	let isInView = $state(false);
+	let hasAnimated = $state(false);
+
+	// Intersection Observer for scroll detection
+	let intersectionObserver: IntersectionObserver | null = null;
+
+	onMount(() => {
+		if (!browser || !sectionElement) return;
+
+		// Create Intersection Observer with threshold
+		intersectionObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						isInView = true;
+						// Reset animation state first, then trigger animation
+						hasAnimated = false;
+						// Small delay to ensure smooth animation reset and replay
+						setTimeout(() => {
+							hasAnimated = true;
+						}, 100);
+					} else {
+						// Reset when leaving view so animation can trigger again next time
+						isInView = false;
+						hasAnimated = false;
+					}
+				});
+			},
+			{
+				threshold: 0.2, // Trigger when 20% of section is visible
+				rootMargin: '0px'
+			}
+		);
+
+		intersectionObserver.observe(sectionElement);
+	});
+
+	onDestroy(() => {
+		if (intersectionObserver) {
+			intersectionObserver.disconnect();
+		}
+	});
 
 	// Team member data structure
 	interface TeamMember {
@@ -91,7 +138,10 @@
 	];
 </script>
 
-<section class="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#198888]">
+<section
+	bind:this={sectionElement}
+	class="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#198888]"
+>
 	<div class="container mx-auto max-w-7xl">
 		<!-- Header Section -->
 		<div class="text-center mb-16">
@@ -131,10 +181,13 @@
 		<div
 			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
 		>
-			{#each teamMembers as member (member.id)}
+			{#each teamMembers as member, index (member.id)}
 				<!-- Team Member Card -->
 				<div
-					class="team-card bg-[#f8fafc] rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+					class="team-card bg-[#f8fafc] rounded-xl shadow-md overflow-hidden {hasAnimated
+						? 'card-visible'
+						: 'card-hidden'}"
+					style="transition-delay: {index * 100}ms;"
 				>
 					<!-- Member Image -->
 					<div
@@ -210,10 +263,30 @@
 </section>
 
 <style>
+	/* Initial state: Cards hidden */
+	.team-card.card-hidden {
+		opacity: 0;
+		transform: translateY(50px) scale(0.9);
+	}
+
+	/* Animated state: Cards visible */
+	.team-card.card-visible {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+
 	/* Smooth transitions for team cards */
 	.team-card {
-		transition-property: transform, box-shadow;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-property: transform, box-shadow, opacity;
+		transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+		transition-duration: 0.8s;
+		will-change: transform, opacity;
+	}
+
+	/* Hover effect - only when visible */
+	.team-card.card-visible:hover {
+		transform: translateY(-8px) scale(1.02);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 	}
 
 	/* Social icon hover effects */
