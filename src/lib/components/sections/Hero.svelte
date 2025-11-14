@@ -93,7 +93,7 @@
 </script>
 
 <section 
-	class="relative h-screen min-h-[600px] sm:min-h-[700px] md:min-h-[800px] overflow-hidden"
+	class="relative h-screen min-h-[500px] sm:min-h-[650px] md:min-h-[750px] lg:min-h-[800px] xl:min-h-[850px] 2xl:min-h-[900px] overflow-hidden"
 	role="banner"
 	onmouseenter={() => isHovered = true}
 	onmouseleave={() => isHovered = false}
@@ -109,8 +109,9 @@
 							<img 
 								src={slide.image} 
 								alt={slide.title}
-								class="w-full h-full object-cover transform scale-110 transition-all duration-15000 ease-out"
+								class="w-full h-full object-cover object-center transform scale-105 sm:scale-110 transition-all duration-15000 ease-out"
 								class:scale-100={selectedIndex === slide.id - 1}
+								loading="eager"
 							/>
 							<!-- Multi-layer gradient overlay for depth -->
 							<div 
@@ -126,15 +127,15 @@
 
 						<!-- Enhanced Floating Shapes with responsive sizing -->
 						<div class="absolute inset-0 overflow-hidden pointer-events-none">
-							<div class="absolute top-1/4 -left-10 sm:-left-16 md:-left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 bg-white/8 rounded-full blur-2xl sm:blur-3xl animate-float-slow"></div>
-							<div class="absolute bottom-1/4 -right-10 sm:-right-16 md:-right-20 w-40 h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] animate-float-medium"></div>
-							<div class="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-yellow-400/15 rounded-full blur-xl sm:blur-2xl animate-float-fast"></div>
-							<div class="absolute bottom-1/3 left-1/4 w-24 h-24 sm:w-40 sm:h-40 md:w-56 md:h-56 bg-purple-400/10 rounded-full blur-2xl sm:blur-3xl animate-float-slow"></div>
+							<div class="hidden sm:block absolute top-1/4 -left-10 sm:-left-16 md:-left-20 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 bg-white/8 rounded-full blur-2xl sm:blur-3xl animate-float-slow"></div>
+							<div class="hidden sm:block absolute bottom-1/4 -right-10 sm:-right-16 md:-right-20 w-40 h-40 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-2xl sm:blur-[80px] md:blur-[100px] animate-float-medium"></div>
+							<div class="hidden sm:block absolute top-1/3 right-1/4 w-16 h-16 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-yellow-400/15 rounded-full blur-lg sm:blur-xl md:blur-2xl animate-float-fast"></div>
+							<div class="hidden sm:block absolute bottom-1/3 left-1/4 w-20 h-20 sm:w-40 sm:h-40 md:w-56 md:h-56 bg-purple-400/10 rounded-full blur-xl sm:blur-2xl md:blur-3xl animate-float-slow"></div>
 							<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-blue-400/8 rounded-full blur-[50px] sm:blur-[60px] md:blur-[80px] animate-pulse-slow"></div>
 						</div>
 
 						<!-- Content with enhanced responsive styling -->
-						<div class="relative z-10 flex items-center justify-center h-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 py-8 sm:py-12 md:py-16">
+						<div class="relative z-10 flex items-center justify-center h-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 py-6 sm:py-8 md:py-12 md:pb-28 lg:py-16 lg:pb-20 xl:py-20">
 							<div 
 								class="text-center text-white max-w-5xl w-full transform transition-all duration-1000 ease-out" 
 								class:translate-y-0={selectedIndex === slide.id - 1}
@@ -144,10 +145,10 @@
 								class:scale-100={selectedIndex === slide.id - 1}
 								class:scale-95={selectedIndex !== slide.id - 1}
 							>
-								<div class="mb-6 sm:mb-8 md:mb-10">
+								<div class="mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12">
 									<!-- Enhanced Badge with responsive sizing -->
 									<div 
-										class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4 sm:mb-6 md:mb-8 shadow-lg shadow-black/20 transform transition-all duration-700 delay-100"
+										class="inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 lg:px-5 lg:py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-3 sm:mb-4 md:mb-6 lg:mb-8 shadow-lg shadow-black/20 transform transition-all duration-700 delay-100"
 										class:translate-y-0={selectedIndex === slide.id - 1}
 										class:translate-y-4={selectedIndex !== slide.id - 1}
 										class:opacity-100={selectedIndex === slide.id - 1}
@@ -157,12 +158,12 @@
 											<div class="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full bg-white mr-0.5 sm:mr-1 animate-pulse"></div>
 											<div class="absolute inset-0 w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full bg-white animate-ping opacity-75"></div>
 										</div>
-										<span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide uppercase">Featured Solution</span>
+										<span class="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-semibold tracking-wide uppercase">Featured Solution</span>
 									</div>
 									
 									<!-- Enhanced Title with perfect responsive typography -->
 									<h1 
-										class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold mb-3 sm:mb-4 md:mb-6 leading-[1.1] sm:leading-[1.15] md:leading-[1.1] tracking-tight px-2 sm:px-4 transform transition-all duration-1000 delay-200"
+										class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-2 sm:mb-3 md:mb-4 lg:mb-6 leading-[1.15] sm:leading-[1.1] md:leading-[1.15] lg:leading-[1.1] tracking-tight px-1 sm:px-2 md:px-4 transform transition-all duration-1000 delay-200"
 										class:translate-y-0={selectedIndex === slide.id - 1}
 										class:translate-y-6={selectedIndex !== slide.id - 1}
 									>
@@ -173,7 +174,7 @@
 									
 									<!-- Enhanced Subtitle with responsive sizing -->
 									<p 
-										class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-100 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto leading-relaxed sm:leading-relaxed md:leading-relaxed font-light px-3 sm:px-4 transform transition-all duration-1000 delay-300"
+										class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-100 mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto leading-relaxed font-light px-2 sm:px-3 md:px-4 transform transition-all duration-1000 delay-300"
 										class:translate-y-0={selectedIndex === slide.id - 1}
 										class:translate-y-4={selectedIndex !== slide.id - 1}
 									>
@@ -183,18 +184,18 @@
 
 								<!-- Enhanced CTA Buttons with responsive sizing -->
 								<div 
-									class="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 justify-center items-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-0 transform transition-all duration-1000 delay-400"
+									class="flex flex-col sm:flex-row gap-2.5 sm:gap-3 md:gap-4 lg:gap-5 justify-center items-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 px-3 sm:px-4 md:px-0 transform transition-all duration-1000 delay-400"
 									class:translate-y-0={selectedIndex === slide.id - 1}
 									class:translate-y-4={selectedIndex !== slide.id - 1}
 								>
 									<Button 
 										variant="primary" 
 										size="lg" 
-										class="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:scale-105 bg-linear-to-r from-white/20 to-white/10 backdrop-blur-md border border-white/30 text-white hover:from-white/30 hover:to-white/20 overflow-hidden"
+										class="group relative w-full sm:w-auto max-w-[280px] sm:max-w-none px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 lg:px-10 lg:py-5 text-xs sm:text-sm md:text-base lg:text-lg font-semibold rounded-lg sm:rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:scale-105 bg-linear-to-r from-white/20 to-white/10 backdrop-blur-md border border-white/30 text-white hover:from-white/30 hover:to-white/20 overflow-hidden"
 									>
-										<span class="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
+										<span class="relative z-10 flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2">
 											{slide.ctaText}
-											<svg class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
 											</svg>
 										</span>
@@ -203,7 +204,7 @@
 									<Button
 										variant="outline"
 										size="lg"
-										class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 text-sm sm:text-base md:text-lg font-semibold rounded-lg sm:rounded-xl border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300 backdrop-blur-md shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
+										class="w-full sm:w-auto max-w-[280px] sm:max-w-none px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 lg:px-10 lg:py-5 text-xs sm:text-sm md:text-base lg:text-lg font-semibold rounded-lg sm:rounded-xl border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60 transition-all duration-300 backdrop-blur-md shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105"
 									>
 										Learn More
 									</Button>
@@ -211,29 +212,29 @@
 								
 								<!-- Enhanced Stats with responsive design -->
 								<div 
-									class="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl mx-auto px-2 sm:px-4 transform transition-all duration-1000 delay-500"
+									class="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-12 max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-lg xl:max-w-2xl mx-auto px-1 sm:px-2 md:px-4 mb-8 md:mb-16 lg:mb-8 transform transition-all duration-1000 delay-500"
 									class:translate-y-0={selectedIndex === slide.id - 1}
 									class:translate-y-6={selectedIndex !== slide.id - 1}
 									class:opacity-100={selectedIndex === slide.id - 1}
 									class:opacity-0={selectedIndex !== slide.id - 1}
 								>
 									<div class="text-center group">
-										<div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-1 sm:mb-2 bg-linear-to-b from-white to-gray-300 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+										<div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-0.5 sm:mb-1 md:mb-2 bg-linear-to-b from-white to-gray-300 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
 											98%
 										</div>
-										<div class="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-gray-300 font-medium uppercase tracking-wider leading-tight">Client Satisfaction</div>
+										<div class="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm text-gray-300 font-medium uppercase tracking-wider leading-tight">Client Satisfaction</div>
 									</div>
 									<div class="text-center group">
-										<div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-1 sm:mb-2 bg-linear-to-b from-white to-gray-300 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+										<div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-0.5 sm:mb-1 md:mb-2 bg-linear-to-b from-white to-gray-300 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
 											24/7
 										</div>
-										<div class="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-gray-300 font-medium uppercase tracking-wider leading-tight">Support</div>
+										<div class="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm text-gray-300 font-medium uppercase tracking-wider leading-tight">Support</div>
 									</div>
 									<div class="text-center group">
-										<div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-1 sm:mb-2 bg-linear-to-b from-white to-gray-300 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+										<div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-0.5 sm:mb-1 md:mb-2 bg-linear-to-b from-white to-gray-300 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
 											5x
 										</div>
-										<div class="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-gray-300 font-medium uppercase tracking-wider leading-tight">Faster Growth</div>
+										<div class="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm text-gray-300 font-medium uppercase tracking-wider leading-tight">Faster Growth</div>
 									</div>
 								</div>
 							</div>
@@ -244,14 +245,14 @@
 		</div>
 
 		<!-- Enhanced Navigation Dots with responsive sizing -->
-		<div class="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-20">
-			<div class="flex space-x-2 sm:space-x-3 items-center bg-black/30 backdrop-blur-md rounded-full px-3 py-2 sm:px-4 sm:py-2.5 md:px-5 md:py-3 border border-white/10 shadow-2xl">
+		<div class="absolute bottom-8 sm:bottom-12 md:bottom-6 lg:bottom-20 xl:bottom-24 left-1/2 transform -translate-x-1/2 z-20">
+			<div class="flex space-x-1.5 sm:space-x-2 md:space-x-3 items-center bg-black/30 backdrop-blur-md rounded-full px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2.5 lg:px-5 lg:py-3 border border-white/10 shadow-2xl">
 				{#each slides as _, index (index)}
 					<button
-						class={`relative w-8 h-1 sm:w-10 sm:h-1.5 md:w-14 md:h-1.5 rounded-full transition-all duration-500 overflow-hidden group ${
+						class={`relative w-6 sm:w-8 md:w-10 h-1 sm:h-1 md:h-1.5 lg:w-14 lg:h-1.5 rounded-full transition-all duration-500 overflow-hidden group min-w-[24px] sm:min-w-[32px] ${
 							index === selectedIndex
 								? 'bg-white shadow-lg shadow-white/50'
-								: 'bg-white/30 hover:bg-white/50'
+								: 'bg-white/30 hover:bg-white/50 active:bg-white/60'
 						}`}
 						onclick={() => scrollTo(index)}
 						aria-label={`Go to slide ${index + 1}`}
@@ -259,22 +260,22 @@
 						{#if index === selectedIndex}
 							<div class="absolute top-0 left-0 h-full bg-linear-to-r from-white to-gray-200 rounded-full animate-progress shadow-inner"></div>
 						{/if}
-						<div class="absolute inset-0 bg-white/0 group-hover:bg-white/20 transition-colors duration-300 rounded-full"></div>
+						<div class="absolute inset-0 bg-white/0 group-hover:bg-white/20 group-active:bg-white/30 transition-colors duration-300 rounded-full"></div>
 					</button>
 				{/each}
 				
 				<!-- Enhanced Auto-play toggle with responsive sizing -->
 				<button
-					class="ml-2 sm:ml-3 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 group backdrop-blur-sm"
+					class="ml-1.5 sm:ml-2 md:ml-3 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 border border-white/20 transition-all duration-300 group backdrop-blur-sm min-w-[24px] sm:min-w-[28px]"
 					onclick={toggleAutoPlay}
 					aria-label={isAutoPlaying ? 'Pause auto-play' : 'Play auto-play'}
 				>
 					{#if isAutoPlaying}
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-white group-hover:scale-110 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 lg:h-4 lg:w-4 text-white group-hover:scale-110 transition-transform" viewBox="0 0 20 20" fill="currentColor">
 							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
 						</svg>
 					{:else}
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-white group-hover:scale-110 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 lg:h-4 lg:w-4 text-white group-hover:scale-110 transition-transform" viewBox="0 0 20 20" fill="currentColor">
 							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
 						</svg>
 					{/if}
@@ -283,31 +284,31 @@
 		</div>
 
 		<!-- Enhanced Scroll Indicator with responsive visibility -->
-		<div class="absolute bottom-16 sm:bottom-20 md:bottom-24 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block">
+		<!-- <div class="absolute bottom-12 sm:bottom-16 md:bottom-20 lg:bottom-24 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block">
 			<div class="animate-bounce-slow">
 				<div class="w-5 h-8 sm:w-6 sm:h-10 md:w-7 md:h-12 border-2 border-white/40 rounded-full flex justify-center backdrop-blur-md bg-black/20 shadow-lg">
 					<div class="w-1 h-3 sm:w-1.5 sm:h-4 bg-linear-to-b from-white to-white/50 rounded-full mt-1.5 sm:mt-2 md:mt-2.5 animate-pulse"></div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		
 		<!-- Enhanced Previous/Next Buttons with responsive sizing -->
 		<button
-			class="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md flex items-center justify-center transition-all duration-300 group border border-white/10 shadow-2xl hover:shadow-white/20 hover:scale-110"
+			class="absolute left-1 sm:left-2 md:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-black/40 hover:bg-black/60 active:bg-black/70 backdrop-blur-md flex items-center justify-center transition-all duration-300 group border border-white/10 shadow-2xl hover:shadow-white/20 hover:scale-110 active:scale-105 min-w-[36px] sm:min-w-[40px]"
 			onclick={() => emblaApi?.scrollPrev()}
 			aria-label="Previous slide"
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white group-hover:scale-125 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-white group-hover:scale-125 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
 			</svg>
 		</button>
 		
 		<button
-			class="absolute right-2 sm:right-4 md:right-6 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md flex items-center justify-center transition-all duration-300 group border border-white/10 shadow-2xl hover:shadow-white/20 hover:scale-110"
+			class="absolute right-1 sm:right-2 md:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-black/40 hover:bg-black/60 active:bg-black/70 backdrop-blur-md flex items-center justify-center transition-all duration-300 group border border-white/10 shadow-2xl hover:shadow-white/20 hover:scale-110 active:scale-105 min-w-[36px] sm:min-w-[40px]"
 			onclick={() => emblaApi?.scrollNext()}
 			aria-label="Next slide"
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white group-hover:scale-125 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 text-white group-hover:scale-125 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
 			</svg>
 		</button>
@@ -478,8 +479,29 @@
 		}
 	}
 
+	/* Extra small devices (phones, 320px and up) */
+	@media (min-width: 320px) {
+		section {
+			min-height: 500px;
+		}
+	}
+
+	/* Small devices (phones, 375px and up) */
+	@media (min-width: 375px) {
+		section {
+			min-height: 550px;
+		}
+	}
+
 	/* Responsive text sizing for better mobile readability */
-	@media (max-width: 375px) {
+	@media (max-width: 374px) {
+		h1 {
+			font-size: 1.25rem;
+			line-height: 1.2;
+		}
+	}
+
+	@media (min-width: 375px) and (max-width: 639px) {
 		h1 {
 			font-size: 1.5rem;
 			line-height: 1.2;
@@ -492,18 +514,76 @@
 		-webkit-backdrop-filter: blur(12px);
 	}
 
-	/* Ensure proper spacing on very small screens */
-	@media (max-width: 320px) {
-		section {
-			min-height: 500px;
-		}
-	}
-
 	/* Better touch targets for mobile */
 	@media (max-width: 768px) {
 		button {
 			min-height: 44px;
 			min-width: 44px;
+		}
+	}
+
+	/* Landscape orientation adjustments */
+	@media (max-height: 500px) and (orientation: landscape) {
+		section {
+			min-height: 100vh;
+			height: 100vh;
+		}
+		
+		.embla__slide {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+	}
+
+	/* Tablet portrait adjustments */
+	@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+		section {
+			min-height: 100vh;
+		}
+	}
+
+	/* Tablet size (768px - 1024px) - Fix content and navigation overlap */
+	@media (min-width: 768px) and (max-width: 1024px) {
+		/* Ensure content wrapper has enough bottom padding to avoid navigation dots */
+		section .embla__slide > div[class*="relative"][class*="z-10"] {
+			padding-bottom: 7rem !important;
+		}
+		
+		/* Adjust stats section margin for better spacing */
+		section [class*="grid"][class*="grid-cols-3"] {
+			margin-bottom: 2.5rem !important;
+		}
+		
+		/* Adjust navigation dots position for tablet - ensure it's visible */
+		section > div > div[class*="absolute"][class*="bottom"]:last-of-type {
+			bottom: 1.5rem !important;
+		}
+	}
+
+	/* Large desktop adjustments */
+	@media (min-width: 1920px) {
+		section {
+			min-height: 100vh;
+		}
+	}
+
+	/* Prevent text selection on mobile for better UX */
+	@media (max-width: 768px) {
+		button {
+			-webkit-tap-highlight-color: transparent;
+			touch-action: manipulation;
+		}
+	}
+
+	/* Improve image rendering on mobile */
+	img {
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+	}
+
+	@media (min-width: 640px) {
+		img {
+			image-rendering: auto;
 		}
 	}
 
