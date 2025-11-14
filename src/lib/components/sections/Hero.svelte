@@ -111,7 +111,11 @@
 								alt={slide.title}
 								class="w-full h-full object-cover object-center transform scale-105 sm:scale-110 transition-all duration-15000 ease-out"
 								class:scale-100={selectedIndex === slide.id - 1}
-								loading="eager"
+								loading={slide.id === 1 ? "eager" : "lazy"}
+								fetchpriority={slide.id === 1 ? "high" : "auto"}
+								width="1920"
+								height="1080"
+								sizes="100vw"
 							/>
 							<!-- Multi-layer gradient overlay for depth -->
 							<div 

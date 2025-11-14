@@ -221,6 +221,9 @@
 							alt="{member.name}"
 							class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
 							loading="lazy"
+							width={363}
+							height={363}
+							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 						/>
 					</div>
 

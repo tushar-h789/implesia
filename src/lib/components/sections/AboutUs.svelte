@@ -6,7 +6,15 @@
   <section class="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 py-20 px-6 lg:px-20">
     <!-- Left Image -->
     <div class="w-full h-full">
-      <img src={aboutUsImage} alt="Office" class="w-full h-full object-cover rounded-xl shadow-lg" />
+      <img 
+        src={aboutUsImage} 
+        alt="Office" 
+        class="w-full h-full object-cover rounded-xl shadow-lg" 
+        loading="lazy"
+        width={800}
+        height={1000}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      />
     </div>
   
     <!-- Right Text Content -->
@@ -38,7 +46,15 @@
   
         <div class="flex items-center space-x-4">
             <div class="w-16 h-16 rounded-md flex items-center justify-center">
-            <img src={tusharImage} alt="Tushar Hossen" class="w-full h-full rounded-full" />
+            <img 
+              src={tusharImage} 
+              alt="Tushar Hossen" 
+              class="w-full h-full rounded-full" 
+              loading="lazy"
+              width={64}
+              height={64}
+              sizes="64px"
+            />
           </div>
           <div>
             <p class="text-lg font-semibold">Tushar Hossen</p>
