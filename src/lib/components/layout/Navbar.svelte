@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/environment';
 	import { ChevronDown, Menu, X, Facebook, Github, Twitter, Linkedin } from 'lucide-svelte';
 
 	let open = $state(false);
@@ -30,6 +31,7 @@
 	}
 
 	function handleServicesMouseEnter() {
+		if (!browser) return;
 		if (window.innerWidth >= 768) {
 			// Only on desktop (768px and above)
 			if (servicesTimeout) {
@@ -43,6 +45,7 @@
 	}
 
 	function handleServicesMouseLeave() {
+		if (!browser) return;
 		if (window.innerWidth >= 768) {
 			// Only on desktop (768px and above) - add delay before closing
 			servicesTimeout = setTimeout(() => {
@@ -53,8 +56,10 @@
 
 	// Scroll handler for navbar visibility
 	function handleScroll() {
+		if (!browser) return;
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
+				if (!browser) return;
 				const currentScrollY = window.scrollY;
 				
 				// Always show navbar at the top of the page
@@ -94,11 +99,13 @@
 	}
 
 	onMount(() => {
+		if (!browser) return;
 		lastScrollY = window.scrollY;
 		window.addEventListener('scroll', handleScroll, { passive: true });
 	});
 
 	onDestroy(() => {
+		if (!browser) return;
 		window.removeEventListener('scroll', handleScroll);
 		if (servicesTimeout) {
 			clearTimeout(servicesTimeout);
