@@ -20,7 +20,11 @@
 	onMount(() => {
 		if (!browser || !sectionElement) return;
 
+		// Detect mobile device
+		const isMobile = window.innerWidth < 640;
+		
 		// Create Intersection Observer with threshold
+		// Lower threshold for mobile devices to ensure cards appear
 		intersectionObserver = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -40,12 +44,30 @@
 				});
 			},
 			{
-				threshold: 0.2, // Trigger when 20% of section is visible
-				rootMargin: '0px'
+				threshold: isMobile ? 0.1 : 0.2, // Lower threshold on mobile (10% vs 20%)
+				rootMargin: isMobile ? '50px' : '0px' // Add margin on mobile for earlier trigger
 			}
 		);
 
 		intersectionObserver.observe(sectionElement);
+		
+		// Check if section is already in view on mount (common on mobile)
+		const rect = sectionElement.getBoundingClientRect();
+		const isAlreadyInView = rect.top < window.innerHeight && rect.bottom > 0;
+		
+		if (isAlreadyInView && !hasAnimated) {
+			// Section is already visible, trigger animation immediately
+			setTimeout(() => {
+				hasAnimated = true;
+			}, 200);
+		}
+		
+		// Fallback: If cards don't animate after 1.5 seconds, show them anyway
+		setTimeout(() => {
+			if (!hasAnimated) {
+				hasAnimated = true;
+			}
+		}, 1500);
 	});
 
 	onDestroy(() => {
@@ -115,7 +137,7 @@
 		},
 		{
 			id: '5',
-			name: 'Sazubul Islam Soikot',
+			name: 'Md Sazibul Islam ',
 			role: 'Frontend Developer',
 			image: soikot,
 			socialLinks: {
@@ -140,7 +162,8 @@
 
 <section
 	bind:this={sectionElement}
-	class="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#198888]"
+	class="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-[#198888] overflow-visible"
+	style="display: block; visibility: visible; opacity: 1;"
 >
 	<div class="container mx-auto max-w-7xl">
 		<!-- Header Section -->
@@ -267,6 +290,9 @@
 	.team-card.card-hidden {
 		opacity: 0;
 		transform: translateY(50px) scale(0.9);
+		/* Ensure cards are still in layout flow on mobile */
+		visibility: visible;
+		display: block;
 	}
 
 	/* Animated state: Cards visible */
@@ -314,6 +340,14 @@
 	@media (max-width: 640px) {
 		.team-card .relative {
 			height: 280px;
+		}
+		
+		/* Ensure cards are visible on mobile even if animation hasn't triggered */
+		.team-card {
+			min-height: 400px;
+			/* Ensure cards maintain layout space */
+			display: block;
+			visibility: visible;
 		}
 	}
 </style>

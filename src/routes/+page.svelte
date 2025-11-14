@@ -5,6 +5,7 @@
 	import OurTeamMembers from '$lib/components/sections/OurTeamMembers.svelte';
 	import Pricing from '$lib/components/sections/pricing.svelte';
 	import FAQSection from '$lib/components/sections/faq-section.svelte';
+	import ContactUs from '$lib/components/sections/ContactUs.svelte';
 </script>
 
 <div>
@@ -14,5 +15,6 @@
 	<OurTeamMembers />
 	<Pricing />
 	<FAQSection />
+	<ContactUs />
 </div>
 
