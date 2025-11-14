@@ -4,6 +4,7 @@
 	import WeAreImplesian from '$lib/components/sections/WeAreImplesian.svelte';
 	import OurTeamMembers from '$lib/components/sections/OurTeamMembers.svelte';
 	import Pricing from '$lib/components/sections/pricing.svelte';
+	import FAQSection from '$lib/components/sections/faq-section.svelte';
 </script>
 
 <div>
@@ -12,5 +13,6 @@
 	<WeAreImplesian />
 	<OurTeamMembers />
 	<Pricing />
+	<FAQSection />
 </div>
 
