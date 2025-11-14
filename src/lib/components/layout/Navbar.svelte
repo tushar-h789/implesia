@@ -1,9 +1,16 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { ChevronDown, Menu, X, Facebook, Github, Twitter, Linkedin } from 'lucide-svelte';
 
-	let open = false;
-	let servicesOpen = false;
+	let open = $state(false);
+	let servicesOpen = $state(false);
 	let servicesTimeout: ReturnType<typeof setTimeout> | null = null;
+	
+	// Scroll-based navbar visibility
+	let isNavbarVisible = $state(true);
+	let lastScrollY = $state(0);
+	let scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+	let ticking = false;
 
 	// Services dropdown data
 	const services = [
@@ -16,6 +23,10 @@
 
 	function toggleServices() {
 		servicesOpen = !servicesOpen;
+		// Keep navbar visible when services dropdown is toggled
+		if (servicesOpen) {
+			isNavbarVisible = true;
+		}
 	}
 
 	function handleServicesMouseEnter() {
@@ -26,6 +37,8 @@
 				servicesTimeout = null;
 			}
 			servicesOpen = true;
+			// Keep navbar visible when hovering over services
+			isNavbarVisible = true;
 		}
 	}
 
@@ -37,11 +50,67 @@
 			}, 200); // 200ms delay
 		}
 	}
+
+	// Scroll handler for navbar visibility
+	function handleScroll() {
+		if (!ticking) {
+			window.requestAnimationFrame(() => {
+				const currentScrollY = window.scrollY;
+				
+				// Always show navbar at the top of the page
+				if (currentScrollY < scrollThreshold) {
+					isNavbarVisible = true;
+					lastScrollY = currentScrollY;
+					ticking = false;
+					return;
+				}
+
+				// Don't hide navbar if mobile menu or services dropdown is open
+				if (open || servicesOpen) {
+					lastScrollY = currentScrollY;
+					ticking = false;
+					return;
+				}
+
+				// Determine scroll direction
+				const scrollDifference = currentScrollY - lastScrollY;
+				
+				// Only trigger if scroll difference is significant
+				if (Math.abs(scrollDifference) > scrollThreshold) {
+					if (scrollDifference > 0) {
+						// Scrolling down - hide navbar
+						isNavbarVisible = false;
+					} else {
+						// Scrolling up - show navbar
+						isNavbarVisible = true;
+					}
+					lastScrollY = currentScrollY;
+				}
+				
+				ticking = false;
+			});
+			ticking = true;
+		}
+	}
+
+	onMount(() => {
+		lastScrollY = window.scrollY;
+		window.addEventListener('scroll', handleScroll, { passive: true });
+	});
+
+	onDestroy(() => {
+		window.removeEventListener('scroll', handleScroll);
+		if (servicesTimeout) {
+			clearTimeout(servicesTimeout);
+		}
+	});
 </script>
 
 <nav
-	class="border-b border-gray-200 bg-white/95 px-6 py-4 backdrop-blur-md"
-	
+	class="sticky top-0 z-100 border-b border-gray-200 bg-white/95 px-6 py-4 backdrop-blur-md transition-all duration-300 ease-in-out shadow-sm"
+	class:translate-y-0={isNavbarVisible}
+	class:-translate-y-full={!isNavbarVisible}
+	class:shadow-lg={isNavbarVisible && lastScrollY > scrollThreshold}
 	aria-label="Main navigation"
 >
 	<div class="container flex items-center justify-between">
@@ -65,7 +134,13 @@
 			aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
 			aria-expanded={open}
 			aria-controls="mobile-menu"
-			on:click={() => (open = !open)}
+			onclick={() => {
+				open = !open;
+				// Keep navbar visible when mobile menu is toggled
+				if (open) {
+					isNavbarVisible = true;
+				}
+			}}
 		>
 			{#if open}
 				<X class="h-6 w-6" />
@@ -105,12 +180,12 @@
 				tabindex="0"
 				aria-haspopup="true"
 				aria-expanded={servicesOpen}
-				on:mouseenter={handleServicesMouseEnter}
-				on:mouseleave={handleServicesMouseLeave}
+				onmouseenter={handleServicesMouseEnter}
+				onmouseleave={handleServicesMouseLeave}
 			>
 				<button
 					class="group flex items-center space-x-1 font-semibold text-gray-700 transition-colors duration-200 hover:text-blue-600"
-					on:click={toggleServices}
+					onclick={toggleServices}
 					aria-label="Services menu"
 				>
 					<span>Services</span>
@@ -125,12 +200,12 @@
 				<!-- Dropdown Menu -->
 				{#if servicesOpen}
 					<div
-						class="absolute top-full left-0 z-50 animate-in rounded-xl pt-2 fade-in-0 zoom-in-95"
+						class="absolute top-full left-0 z-9999 animate-in rounded-xl pt-2 fade-in-0 zoom-in-95"
 						role="menu"
 						tabindex="0"
 						aria-label="Services submenu"
-						on:mouseenter={handleServicesMouseEnter}
-						on:mouseleave={handleServicesMouseLeave}
+						onmouseenter={handleServicesMouseEnter}
+						onmouseleave={handleServicesMouseLeave}
 					>
 						<div
 							class="w-80 rounded-xl border border-gray-100 bg-white px-3 py-3 shadow-xl md:w-96"
@@ -214,7 +289,7 @@
 					href="/"
 					class="py-2 font-semibold text-gray-700 transition-colors hover:text-blue-600"
 					role="menuitem"
-					on:click={() => (open = false)}
+					onclick={() => (open = false)}
 				>
 					Home
 				</a>
@@ -222,7 +297,7 @@
 					href="/about"
 					class="py-2 font-semibold text-gray-700 transition-colors hover:text-blue-600"
 					role="menuitem"
-					on:click={() => (open = false)}
+					onclick={() => (open = false)}
 				>
 					About
 				</a>
@@ -231,7 +306,7 @@
 				<div class="py-2" role="menuitem">
 					<button
 						class="flex w-full items-center justify-between font-semibold text-gray-700 transition-colors hover:text-blue-600"
-						on:click={toggleServices}
+						onclick={toggleServices}
 						aria-expanded={servicesOpen}
 						aria-label="Services menu"
 					>
@@ -252,7 +327,7 @@
 									href="/services/{service.name.toLowerCase().replace(' ', '-')}"
 									class="flex items-center space-x-3 py-2 text-gray-600 transition-colors hover:text-blue-600"
 									role="menuitem"
-									on:click={() => {
+									onclick={() => {
 										open = false;
 										servicesOpen = false;
 									}}
@@ -269,7 +344,7 @@
 					href="/contact"
 					class="py-2 font-semibold text-gray-700 transition-colors hover:text-blue-600"
 					role="menuitem"
-					on:click={() => (open = false)}
+					onclick={() => (open = false)}
 				>
 					Contact
 				</a>
