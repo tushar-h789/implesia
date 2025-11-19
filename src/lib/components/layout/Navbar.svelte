@@ -122,7 +122,7 @@
 >
 	<div class="container flex items-center justify-between">
 		<!-- Logo Section -->
-		<div class="flex items-center space-x-3">
+		<a href="/" class="flex items-center space-x-3">
 			<div
 				class="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-blue-500 to-purple-600 shadow-lg"
 			>
@@ -133,7 +133,7 @@
 			>
 				Implesia
 			</span>
-		</div>
+		</a>
 
 		<!-- Mobile Menu Button -->
 		<button
@@ -253,28 +253,34 @@
 		<!-- Social Links -->
 		<div class="hidden items-center space-x-3 md:flex" role="group" aria-label="Social media links">
 			<a
-				href="https://www.facebook.com"
+				href="https://www.facebook.com/profile.php?id=61583698480693"
+				target="_blank"
+				rel="noopener noreferrer"
 				class="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-blue-600 to-blue-700 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
 				aria-label="Facebook"
 			>
 				<Facebook class="h-4 w-4" />
 			</a>
-			<a
+			<!-- <a
 				href="https://www.github.com"
 				class="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-pink-500 to-purple-600 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
 				aria-label="Github"
 			>
 				<Github class="h-4 w-4" />
-			</a>
+			</a> -->
 			<a
-				href="https://www.twitter.com"
+				href="https://x.com/implesiaItLtd"
+				target="_blank"
+				rel="noopener noreferrer"
 				class="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-blue-600 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
 				aria-label="Twitter"
 			>
 				<Twitter class="h-4 w-4" />
 			</a>
 			<a
-				href="https://www.linkedin.com"
+				href="https://www.linkedin.com/company/109942284/admin/dashboard/"
+				target="_blank"
+				rel="noopener noreferrer"
 				class="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-blue-700 to-blue-800 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
 				aria-label="LinkedIn"
 			>

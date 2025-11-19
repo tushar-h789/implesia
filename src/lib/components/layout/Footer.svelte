@@ -177,7 +177,7 @@
 				<div class="space-y-4">
 					<!-- Email -->
 					<a
-						href="mailto:hello@implesia.com"
+						href="mailto:implesiaitltd@gmail.com"
 						class="group flex transform cursor-pointer items-center space-x-3 rounded-lg p-2 transition-all duration-300 hover:scale-105 hover:bg-white/5"
 					>
 						<div
@@ -188,7 +188,7 @@
 						<div>
 							<p class="text-sm text-gray-400">Email</p>
 							<p class="text-white transition-colors duration-300 group-hover:text-blue-300">
-								hello@implesia.com
+								implesiaitltd@gmail.com
 							</p>
 						</div>
 					</a>
@@ -223,7 +223,7 @@
 						<div>
 							<p class="text-sm text-gray-400">Address</p>
 							<p class="text-white transition-colors duration-300 group-hover:text-purple-300">
-								287/A Mirpur, Dhaka, Bangladesh
+								 House-387, Road-2, Mirpur, Dhaka, Bangladesh
 							</p>
 						</div>
 					</div>

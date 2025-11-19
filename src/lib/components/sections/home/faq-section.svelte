@@ -120,10 +120,10 @@ FREQUENTLY ASK QUESTIONS
 						<div>
 							<p class="text-gray-700 font-semibold mb-1">For Technical Issues</p>
 							<a
-								href="mailto:tushar788hossen@gmail.com"
+								href="mailto:implesiaitltd@gmail.com"
 								class="text-gray-600 text-sm sm:text-base hover:text-[#089a99] transition-colors duration-300 cursor-pointer"
 							>
-								Mail us : tushar788hossen@gmail.com
+								Mail us : implesiaitltd@gmail.com
 							</a>
 						</div>
 					</div>
