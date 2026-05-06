@@ -6,7 +6,7 @@
 	let open = $state(false);
 	let servicesOpen = $state(false);
 	let servicesTimeout: ReturnType<typeof setTimeout> | null = null;
-	
+
 	// Scroll-based navbar visibility
 	let isNavbarVisible = $state(true);
 	let lastScrollY = $state(0);
@@ -61,7 +61,7 @@
 			window.requestAnimationFrame(() => {
 				if (!browser) return;
 				const currentScrollY = window.scrollY;
-				
+
 				// Always show navbar at the top of the page
 				if (currentScrollY < scrollThreshold) {
 					isNavbarVisible = true;
@@ -79,7 +79,7 @@
 
 				// Determine scroll direction
 				const scrollDifference = currentScrollY - lastScrollY;
-				
+
 				// Only trigger if scroll difference is significant
 				if (Math.abs(scrollDifference) > scrollThreshold) {
 					if (scrollDifference > 0) {
@@ -91,7 +91,7 @@
 					}
 					lastScrollY = currentScrollY;
 				}
-				
+
 				ticking = false;
 			});
 			ticking = true;
@@ -114,7 +114,7 @@
 </script>
 
 <nav
-	class="sticky top-0 z-100 border-b border-gray-200 bg-white/95 px-6 py-4 backdrop-blur-md transition-all duration-300 ease-in-out shadow-sm"
+	class="sticky top-0 z-100 border-b border-gray-200 bg-white/95 px-6 py-4 shadow-sm backdrop-blur-md transition-all duration-300 ease-in-out"
 	class:translate-y-0={isNavbarVisible}
 	class:-translate-y-full={!isNavbarVisible}
 	class:shadow-lg={isNavbarVisible && lastScrollY > scrollThreshold}
