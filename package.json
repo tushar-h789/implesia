@@ -48,6 +48,7 @@
 	},
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"embla-carousel": "^8.6.0",
 		"embla-carousel-svelte": "^8.6.0",
 		"install": "^0.13.0",
